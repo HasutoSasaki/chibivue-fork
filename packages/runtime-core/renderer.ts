@@ -18,7 +18,7 @@ export interface RendererOptions<
 
     insert(child: HostNode, parent: HostNode, anchor?: HostNode | null): void
 
-    patchProp(el: HostElement, key: string, value: string): void
+    patchProp(el: HostElement, key: string, value: any): void
 }
 
 export interface RendererNode {
