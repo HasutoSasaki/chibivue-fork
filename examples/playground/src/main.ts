@@ -1,16 +1,17 @@
-import { createApp, h } from "chibivue";
+import { createApp, h, reactive } from "chibivue";
 
 const app = createApp({
     setup() {
+        const state = reactive({ count: 1 })
+
+        const increment = () => {
+            state.count++
+        }
+
         return function render() {
             return h('div', {}, [
-                h('p', { style: 'color: blue; font-weight: bold;' }, ['Hello world.']),
-                h('button', {
-                    onClick() {
-                        alert('clicked!')
-                    }
-                },
-                    ['click me!']),
+                h('p', {}, [`count:${state.count}`]),
+                h('button', { onClick: increment }, ['increment']),
             ])
         }
     }
